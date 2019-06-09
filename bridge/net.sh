@@ -13,7 +13,6 @@ ip link set p-h1 netns host1
 ip link set p-h2 netns host2
 
 brctl addbr bridge
-sleep 1
 brctl addif bridge p1-br
 brctl addif bridge p2-br
 brctl addif bridge p3-br
