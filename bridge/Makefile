@@ -5,3 +5,5 @@ clean:
 	ip -all netns del
 	ip link set bridge down
 	brctl delbr bridge
+	ip l del bridge
+	ip l del test-br
