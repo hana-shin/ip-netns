@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 
+## add
 ip netns add cl
 ip netns add sv
 
