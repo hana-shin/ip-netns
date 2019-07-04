@@ -56,3 +56,16 @@ ip netns exec r2 ip link set p1-r2 up
 ip netns exec r3 ip link set p0-r3 up
 ip netns exec r3 ip link set p1-r3 up
 ip netns exec sv ip link set p0-sv up
+
+ip netns exec r1 sysctl -w net.ipv4.ip_forward=1
+ip netns exec r2 sysctl -w net.ipv4.ip_forward=1
+ip netns exec r3 sysctl -w net.ipv4.ip_forward=1
+
+
+ip netns exec cl ip route add 192.168.40.0/24 via 192.168.10.20 dev p0-cl
+ip netns exec r1 ip route add 192.168.40.0/24 via 192.168.20.20 dev p1-r1
+ip netns exec r2 ip route add 192.168.40.0/24 via 192.168.30.20 dev p1-r2
+
+ip netns exec sv ip route add 192.168.10.0/24 via 192.168.40.10 dev p0-sv
+ip netns exec r3 ip route add 192.168.10.0/24 via 192.168.30.10 dev p0-r3
+ip netns exec r2 ip route add 192.168.10.0/24 via 192.168.20.10 dev p0-r2
