@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-#
+
 ip netns add cl
 ip netns add r1
 ip netns add r2
@@ -48,11 +48,11 @@ ip netns exec r2 ip link set lo up
 ip netns exec r3 ip link set lo up
 ip netns exec sv ip link set lo up
 
-ip link set p0-cl up
-ip link set p0-r1 up
-ip link set p1-r1 up
-ip link set p0-r2 up
-ip link set p1-r2 up
-ip link set p0-r3 up
-ip link set p1-r3 up
-ip link set p0-sv up
+ip netns exec cl ip link set p0-cl up
+ip netns exec r1 ip link set p0-r1 up
+ip netns exec r1 ip link set p1-r1 up
+ip netns exec r2 ip link set p0-r2 up
+ip netns exec r2 ip link set p1-r2 up
+ip netns exec r3 ip link set p0-r3 up
+ip netns exec r3 ip link set p1-r3 up
+ip netns exec sv ip link set p0-sv up
