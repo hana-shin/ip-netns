@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-
+#
 ip netns add cl
 ip netns add r1
 ip netns add r2
