@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 
+
 ip netns add host1
 ip netns add host2
 ip netns add host3
